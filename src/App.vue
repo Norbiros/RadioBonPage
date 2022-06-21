@@ -25,7 +25,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 .navbar {
   height: 60px;
-  background: white;
+  background: var(--nav-background);
   display: flex;
   align-items: center;
   padding: 0 14px;
@@ -68,7 +68,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 
 .navbar a {
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
