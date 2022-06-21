@@ -3,14 +3,18 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
+
 <template>
   <div class="navbar">
     <img alt="Logo" class="logo" src="@/assets/logo.png" />
+    <font-awesome-icon icon="fa-regular fa-circle-user" />
+
     <div class="links">
       <RouterLink to="/">Strona Główna</RouterLink>
       <RouterLink to="/audition">Audycje</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
       <RouterLink to="/about"><img alt="Login" class="logo" src="@/assets/login.png" /></RouterLink>
+      <i class="fab fa-github-square"></i>
     </div>
   </div>
 

@@ -2,6 +2,21 @@
   <div class="about">
     <h1>Audycje Radiowęzła</h1>
     <div class="broadcast-page-desc"> Tutaj przeczytasz wszystkie nasze audycje! </div>
+    <div id="loading" v-if="!isLoaded">
+      <img
+        class="img"
+        src="@/assets/loading.gif"
+        alt="Loading..."
+        width="200"
+      />
+    </div>
+    <div v-if="error">
+      <div id="errors">
+        <h1> Podczas ładowania wystąpił błąd! </h1>
+        <span> {{ errorName }}: {{ errorMessage }} </span> <br>
+        <span style="font-weight: bold;"> Skontaktuj się z <a href="mailto:norbiros@protonmail.com">Developerem</a> aby zgłosić ten błąd!</span>
+      </div>
+    </div>
     <ul>
       <li v-for="broadcast in broadcasts">
         <p>{{ broadcast["Title"] }}</p>
@@ -58,6 +73,22 @@ p {
   padding: 5px 10px;
   background: var(--text-background);
 }
+
+#loading {
+  text-align: center;
+}
+
+#errors {
+  width: 550px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 0, 0, 0.59);
+  padding: 10px 15px;
+  border: 5px solid red;
+  border-radius: 10px;
+  margin-top: 45px;
+}
 </style>
 
 
@@ -66,7 +97,10 @@ export default {
   data() {
     return {
       broadcasts: [],
-      error: "",
+      errorName: "",
+      errorMessage: "",
+      error: false,
+      isLoaded: false,
     };
   },
 
@@ -75,10 +109,16 @@ export default {
       try {
         let response = await fetch("https://radiobon-api.herokuapp.com/broadcasts");
         let broadcasts = await response.json();
+        broadcasts = broadcasts.reverse();
         this.broadcasts = broadcasts.filter(function (e) { return e != null; });
       } catch (error) {
         console.log(error);
+        console.log(error.name);
+        this.errorName = error.name;
+        this.errorMessage = error.message;
+        this.error = true;
       }
+      this.isLoaded = true;
     },
   },
 
