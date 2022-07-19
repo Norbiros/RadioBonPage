@@ -20,7 +20,7 @@
     <ul>
       <li v-for="broadcast in broadcasts">
         <p>{{ broadcast["Title"] }}</p>
-        <div class="broadcasts-desc">{{ broadcast["Description"] }}</div>
+        <pre class="broadcasts-desc">{{ broadcast["Description"] }}</pre>
       </li>
     </ul>
   </div>
@@ -34,6 +34,11 @@
     display: flex;
     align-items: center;
   }
+}
+
+pre {
+  line-break: anywhere;
+  white-space: pre-line;
 }
 
 ul {

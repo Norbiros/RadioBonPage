@@ -6,7 +6,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 <template>
   <div class="navbar">
-    <img alt="Logo" class="logo" src="@/assets/logo.png" />
+    <RouterLink to="/"><img alt="Logo" class="logo" src="@/assets/logo.png" /></RouterLink>
     <font-awesome-icon icon="fa-regular fa-circle-user" />
 
     <div class="links">
@@ -26,6 +26,9 @@ import HelloWorld from '@/components/HelloWorld.vue'
 <style>
 @import '@/assets/base.css';
 
+.body > div {
+  display: block !important;
+}
 
 .navbar {
   height: 60px;
