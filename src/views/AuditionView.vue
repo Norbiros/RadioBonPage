@@ -77,6 +77,7 @@ p {
 .broadcasts-desc {
   padding: 5px 10px;
   background: var(--text-background);
+  font-family: unset;
 }
 
 #loading {

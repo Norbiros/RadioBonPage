@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 
@@ -13,7 +12,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
       <RouterLink to="/">Strona Główna</RouterLink>
       <RouterLink to="/audition">Audycje</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
-      <RouterLink to="/about"><img alt="Login" class="logo" src="@/assets/login.png" /></RouterLink>
+      <RouterLink to="/login"><img alt="Login" class="logo" src="@/assets/login.png" /></RouterLink>
       <i class="fab fa-github-square"></i>
     </div>
   </div>
@@ -35,7 +34,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
   background: var(--nav-background);
   display: flex;
   align-items: center;
-  padding: 0 14px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 100;
@@ -55,8 +53,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
 }
 
 .logo {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
 .body {
@@ -67,7 +65,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
   width: 100%;
   font-size: 12px;
   text-align: center;
-  padding: 0 1rem;
   border-left: 1px solid var(--color-border);
   height: 60px;
   position: fixed;
@@ -87,6 +84,10 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 .navbar a.router-link-exact-active {
   font-weight: bold;
+}
+
+a.router-link-exact-active > img {
+  filter: drop-shadow(0 0 0.2px black);
 }
 
 .navbar a:hover:not(.router-link-exact-active) {
