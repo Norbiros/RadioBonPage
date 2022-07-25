@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import AuditionView from '../views/AuditionView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import LoginView from '../views/LoginView.vue'
+import AdminDashboardView from '../views/AdminDashboardView.vue'
 
 
 const router = createRouter({
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/login',
       alias: '/register',
       component: LoginView
+    },
+    {
+      name: 'admin',
+      path: '/admin',
+      component: AdminDashboardView
     },
     {
       path: '/:pathMatch(.*)*', // 404 page

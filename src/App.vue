@@ -6,14 +6,12 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="navbar">
     <RouterLink to="/"><img alt="Logo" class="logo" src="@/assets/logo.png" /></RouterLink>
-    <font-awesome-icon icon="fa-regular fa-circle-user" />
 
     <div class="links">
       <RouterLink to="/">Strona Główna</RouterLink>
       <RouterLink to="/audition">Audycje</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
       <RouterLink to="/login"><img alt="Login" class="logo" src="@/assets/login.png" /></RouterLink>
-      <i class="fab fa-github-square"></i>
     </div>
   </div>
 
@@ -24,6 +22,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 @import '@/assets/base.css';
+@import '@/assets/components.css';
 
 .body > div {
   display: block !important;

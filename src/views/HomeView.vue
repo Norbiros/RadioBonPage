@@ -1,7 +1,3 @@
-v<script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
-</script>
-
 <template>
   <div class="about-page about-desc">
     <h1> Strona Szkolnego Radiowęzła </h1>
