@@ -19,8 +19,8 @@
     </div>
     <ul>
       <li v-for="broadcast in broadcasts">
-        <p>{{ broadcast["Title"] }}</p>
-        <pre class="broadcasts-desc">{{ broadcast["Description"] }}</pre>
+        <p>{{ broadcast.title }}</p>
+        <pre class="broadcasts-desc">{{ broadcast.description }}</pre>
       </li>
     </ul>
   </div>
