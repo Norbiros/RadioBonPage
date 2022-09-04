@@ -1,20 +1,26 @@
 <template>
   <div class="about">
     <h1>Audycje Radiowęzła</h1>
-    <div class="broadcast-page-desc"> Tutaj przeczytasz wszystkie nasze audycje! </div>
+    <div class="broadcast-page-desc">
+      Tutaj przeczytasz wszystkie nasze audycje!
+    </div>
     <div id="loading" v-if="!isLoaded">
       <img
         class="img"
-        src="@/assets/loading.gif"
+        src="@/assets/loading.svg"
         alt="Loading..."
         width="200"
       />
     </div>
     <div v-if="error">
       <div id="errors">
-        <h1> Podczas ładowania wystąpił błąd! </h1>
-        <span> {{ errorName }}: {{ errorMessage }} </span> <br>
-        <span style="font-weight: bold;"> Skontaktuj się z <a href="mailto:norbiros@protonmail.com">Developerem</a> aby zgłosić ten błąd!</span>
+        <h1>Podczas ładowania wystąpił błąd!</h1>
+        <span> {{ errorName }}: {{ errorMessage }} </span> <br />
+        <span style="font-weight: bold">
+          Skontaktuj się z
+          <a href="mailto:norbiros@protonmail.com">Developerem</a> aby zgłosić
+          ten błąd!</span
+        >
       </div>
     </div>
     <ul>
@@ -26,7 +32,6 @@
   </div>
 </template>
 
-
 <style>
 @media (min-width: 1024px) {
   .about {
@@ -36,7 +41,6 @@
 }
 
 pre {
-  line-break: anywhere;
   white-space: pre-line;
 }
 
@@ -96,7 +100,6 @@ p {
 }
 </style>
 
-
 <script>
 export default {
   data() {
@@ -112,10 +115,14 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await fetch("https://radiobon-api.herokuapp.com/broadcasts");
+        let response = await fetch(
+          "https://radiobon-api.herokuapp.com/broadcasts"
+        );
         let broadcasts = await response.json();
         broadcasts = broadcasts.reverse();
-        this.broadcasts = broadcasts.filter(function (e) { return e != null; });
+        this.broadcasts = broadcasts.filter(function (e) {
+          return e != null;
+        });
       } catch (error) {
         console.log(error);
         console.log(error.name);

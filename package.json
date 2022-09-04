@@ -1,6 +1,6 @@
 {
-  "name": "radiobon-webpage",
-  "version": "0.0.0",
+  "name": "RadioBonWebpage",
+  "version": "1.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
-    "vite": "^2.9.9"
+    "vite": "^2.9.15"
   }
 }

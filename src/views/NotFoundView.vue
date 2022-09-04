@@ -1,15 +1,14 @@
 <template>
   <div class="about" id="notfound-outer">
-      <h1>404</h1>
-      <div style="text-align: center">
-        Nie znaleziono podanej strony!<br>
-        Przejdź na <a href="/">Stronę Główną</a>, aby zobaczyć inne strony!
-      </div>
+    <h1>404</h1>
+    <div style="text-align: center">
+      Nie znaleziono podanej strony!<br />
+      Przejdź na <a href="/">Stronę Główną</a>, aby zobaczyć inne strony!
+    </div>
   </div>
 </template>
 
 <style>
-
 #notfound-outer {
   position: fixed;
   top: 50%;
@@ -18,5 +17,4 @@
   margin-top: -48px;
   text-align: center;
 }
-
 </style>

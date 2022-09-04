@@ -1,17 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 </script>
-
 
 <template>
   <div class="navbar">
-    <RouterLink to="/"><img alt="Logo" class="logo" src="@/assets/logo.png" /></RouterLink>
+    <RouterLink to="/"
+      ><img alt="Logo" class="logo" src="@/assets/logo.png"
+    /></RouterLink>
 
     <div class="links">
       <RouterLink to="/">Strona Główna</RouterLink>
       <RouterLink to="/audition">Audycje</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
-      <RouterLink to="/login"><img alt="Login" class="logo" src="@/assets/login.png" /></RouterLink>
+      <RouterLink :to="adminPanelLink"
+        ><img alt="Login" class="logo" src="@/assets/login.png"
+      /></RouterLink>
     </div>
   </div>
 
@@ -21,8 +24,8 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
-@import '@/assets/base.css';
-@import '@/assets/components.css';
+@import "@/assets/base.css";
+@import "@/assets/components.css";
 
 .body > div {
   display: block !important;
@@ -69,14 +72,13 @@ import { RouterLink, RouterView } from 'vue-router'
   position: fixed;
 }
 
-
 .navbar a {
   color: var(--color-text);
   text-decoration: none;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
 }
@@ -90,14 +92,31 @@ a.router-link-exact-active > img {
 }
 
 .navbar a:hover:not(.router-link-exact-active) {
-  text-shadow:
-    -0.2px -0.2px 0 var(--color-text),
+  text-shadow: -0.2px -0.2px 0 var(--color-text),
     0.2px -0.2px 0 var(--color-text);
 }
 
 .navbar a:first-of-type {
   border: 0;
 }
-
-
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      adminPanelLink: "/asd",
+    };
+  },
+  beforeMount() {
+    let comp = this;
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.open("GET", `${import.meta.env.VITE_API_URL}/isLoggedIn`, true);
+    xhr.send();
+    xhr.addEventListener("load", function (event) {
+      comp.adminPanelLink = xhr.responseText === "true" ? "/admin" : "/login";
+    });
+  },
+};
+</script>
