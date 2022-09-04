@@ -116,7 +116,7 @@ export default {
     async getData() {
       try {
         let response = await fetch(
-          "https://radiobon-api.herokuapp.com/broadcasts"
+          `${import.meta.env.VITE_API_URL}/broadcasts`
         );
         let broadcasts = await response.json();
         broadcasts = broadcasts.reverse();

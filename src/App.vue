@@ -102,6 +102,8 @@ a.router-link-exact-active > img {
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -109,14 +111,14 @@ export default {
     };
   },
   beforeMount() {
-    let comp = this;
-    let xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.open("GET", `${import.meta.env.VITE_API_URL}/isLoggedIn`, true);
-    xhr.send();
-    xhr.addEventListener("load", function (event) {
-      comp.adminPanelLink = xhr.responseText === "true" ? "/admin" : "/login";
-    });
+    let that = this;
+    let response = axios
+      .get(`${import.meta.env.VITE_API_URL}/isLoggedIn`, {
+        withCredentials: true,
+      })
+      .then(function (res) {
+        that.adminPanelLink = res.data == true ? "/admin" : "/login";
+      });
   },
 };
 </script>

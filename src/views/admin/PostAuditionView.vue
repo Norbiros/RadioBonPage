@@ -65,6 +65,8 @@ label {
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -84,21 +86,19 @@ export default {
         return;
       }
 
-      let xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
-      xhr.open("POST", `${import.meta.env.VITE_API_URL}/broadcast`, true);
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.send(`title=${title}&description=${description}`);
-      xhr.addEventListener("load", function (event) {
-        comp.errorMessage = xhr.responseText;
-        if (this.status === 200) comp.error = false;
-        else comp.error = true;
-      });
-
-      xhr.addEventListener("error", function (event) {
-        comp.error = true;
-        comp.errorMessage = event;
-      });
+      axios
+          .post(`${import.meta.env.VITE_API_URL}/broadcast`, {
+            title: title,
+            description: description,
+          })
+          .then(function (el) {
+            comp.errorMessage = el.data;
+            comp.error = false;
+          })
+          .catch(function (error) {
+            comp.errorMessage = error.response.data;
+            comp.error = true;
+          });
     },
   },
 };

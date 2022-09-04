@@ -73,49 +73,40 @@ label {
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
       username: "",
       password: "",
-      validMail: false,
       submitted: false,
       error: null,
       errorMessage: null,
     };
   },
   methods: {
-    handleSubmit(e) {
-      this.validMail = /.+\..+@sp40krakow\.onmicrosoft\.com/.test(
-        e.target[1].value
-      );
+    async handleSubmit(e) {
       this.submitted = true;
       this.username = e.target[0].value;
       this.password = e.target[1].value;
       let comp = this;
       if (!!this.username && !!this.password) {
-        let xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        xhr.open("POST", `${import.meta.env.VITE_API_URL}/auth/login`, true);
-        xhr.setRequestHeader(
-          "Content-type",
-          "application/x-www-form-urlencoded"
-        );
-        xhr.send(`username=${this.username}&password=${this.password}`);
-        xhr.addEventListener("load", function (event) {
-          comp.errorMessage = xhr.responseText;
-          if (this.status === 200) {
+        axios
+          .post(`${import.meta.env.VITE_API_URL}/auth/login`, {
+            withCredentials: true,
+            username: this.username,
+            password: this.password,
+          })
+          .then(function (el) {
+            comp.errorMessage = el.data;
             comp.error = false;
             window.location.href = "/admin";
-          } else {
+          })
+          .catch(function (error) {
+            comp.errorMessage = error.response.data;
             comp.error = true;
-          }
-        });
-
-        xhr.addEventListener("error", function (event) {
-          comp.error = true;
-          comp.errorMessage = event;
-        });
+          });
       }
     },
   },
