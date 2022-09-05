@@ -94,7 +94,6 @@ export default {
       if (!!this.username && !!this.password) {
         axios
           .post(`${import.meta.env.VITE_API_URL}/auth/login`, {
-            withCredentials: true,
             username: this.username,
             password: this.password,
           })

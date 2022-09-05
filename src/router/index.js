@@ -7,6 +7,7 @@ import LoginView from "../views/LoginView.vue";
 import AdminDashboardView from "../views/admin/AdminDashboardView.vue";
 import PostAudition from "../views/admin/PostAuditionView.vue";
 import axios from "axios";
+import AddUserView from "../views/admin/AddUserView.vue";
 
 async function getData() {
   return (
@@ -64,9 +65,16 @@ const router = createRouter({
       beforeEnter: ifAuthenticated,
     },
     {
+      name: "addUser",
+      path: "/admin/addUser",
+      component: AddUserView,
+      beforeEnter: ifAuthenticated,
+    },
+    {
       name: "postAudition",
       path: "/admin/postAudition",
       component: PostAudition,
+      beforeEnter: ifAuthenticated,
     },
     {
       path: "/:pathMatch(.*)*", // 404 page

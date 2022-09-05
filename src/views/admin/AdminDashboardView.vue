@@ -9,6 +9,13 @@
       description="Kliknij, aby dodać nową audycję z opisem i tytułem!"
     ></AdminLink>
     <AdminLink
+      v-if="isRoot"
+      to="/admin/addUser"
+      color="orange"
+      title="Dodaj użytkownika (ROOT ONLY)"
+      description="Kliknij, aby nowego użytkownika!"
+    ></AdminLink>
+    <AdminLink
       to=""
       color="lightgray"
       title="Wygeneruj audycję (WIP)"
@@ -74,7 +81,19 @@ label {
 
 <script>
 import AdminLink from "../../components/AdminLink.vue";
+import axios from "axios";
 export default {
   components: { AdminLink },
+  data() {
+    return {
+      isRoot: null,
+    };
+  },
+  beforeMount() {
+    let that = this;
+    axios.get(`${import.meta.env.VITE_API_URL}/iAmRoot`).then(function (res) {
+      that.isRoot = res.data;
+    });
+  },
 };
 </script>

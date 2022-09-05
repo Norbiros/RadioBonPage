@@ -107,12 +107,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      adminPanelLink: "/asd",
+      adminPanelLink: "/login",
     };
   },
   beforeMount() {
     let that = this;
-    let response = axios
+    axios
       .get(`${import.meta.env.VITE_API_URL}/isLoggedIn`, {
         withCredentials: true,
       })
