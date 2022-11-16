@@ -1,9 +1,9 @@
 <template>
-  <div class="about centred" style="padding-top: 100px">
-    <h1 style="margin-bottom: 10px">Logowanie</h1>
+  <div class="about centred" style="padding-top: 80px">
+    <h1 style="margin-bottom: 40px">Logowanie do systemu</h1>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
-        <label for="username">Imie</label>
+        <label for="username">Nazwa użytkownika</label>
         <input type="text" name="username" class="form-control" />
         <div
           class="invalid-feedback"
@@ -32,7 +32,7 @@
         >
           {{ errorMessage }}
         </div>
-        <button class="btn btn-primary">Loguj</button>
+        <button class="btn btn-primary btn-block" style="margin-top: 10px">Loguj</button>
       </div>
     </form>
   </div>
@@ -41,7 +41,7 @@
 <style scoped>
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 
 .show {
@@ -59,8 +59,8 @@ label {
 
 .centred {
   flex: 0 0 50%;
-  max-width: 50%;
-  margin-left: 25%;
+  max-width: 30%;
+  margin-left: 35%;
 }
 
 .is-invalid {

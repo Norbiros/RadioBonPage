@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from "vue-router";
     <div class="links">
       <RouterLink to="/">Strona Główna</RouterLink>
       <RouterLink to="/audition">Audycje</RouterLink>
+      <RouterLink to="/dinner">Stołówka</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
       <RouterLink :to="adminPanelLink"
         ><img alt="Login" class="logo" src="@/assets/login.png"

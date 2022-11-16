@@ -2,16 +2,10 @@
   <div class="about-page about-desc">
     <h1>Strona Szkolnego Radiowęzła</h1>
     <div>
-      <span>Strona jest w bardzo wczesnym stadium programowania. <br /></span>
-      <span
-        >Jedyną funkcjonalnością dostępną w tym momencie jest wyświetlenie
-        <a href="/audition">listy audycji</a>, lecz ta strona także zawiera
-        błędy.<br /><br
-      /></span>
-      <span style="font-weight: bold"
-        >Prosimy o zgłaszanie wszystkich błędów do
-        <a href="https://github.com/Norbiros">Developera</a> strony!</span
-      >
+      <span>Strona jest w trakcie programowania. <br /></span>
+      <span>
+         W tym momencie można np. wyświetlić listę najnowszych audycji<br/>oraz zalogować się do panelu administratora.<br/>
+      </span>
     </div>
     <div class="icons">
       <a
@@ -63,7 +57,7 @@
   align-content: center;
   height: 100vh;
   font: 16px Roboto, sans-serif;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .icons a {

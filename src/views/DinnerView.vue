@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1 style="margin-top: 100px">Audycje Radiowęzła</h1>
+    <h1 style="margin-top: 100px">Menu</h1>
     <div class="broadcast-page-desc">
       Tutaj przeczytasz wszystkie nasze audycje!
     </div>
@@ -25,8 +25,9 @@
     </div>
     <ul class="ul">
       <li class="title" v-for="broadcast in broadcasts">
-        <p>{{ broadcast.title }}</p>
-        <pre class="broadcasts-desc">{{ broadcast.description }}</pre>
+        <p v-if="date==broadcast.date" style="background-color: #91e9e9;">{{ broadcast.date }} <span class="h" v-if="isGood(broadcast.text)">❤️</span> </p>
+        <p v-if="date!=broadcast.date">{{ broadcast.date }}  <span class="h" v-if="isGood(broadcast.text)">❤️</span>  </p>
+        <pre class="broadcasts-desc">{{ broadcast.text }}</pre>
       </li>
     </ul>
   </div>
@@ -47,6 +48,7 @@
   }
 }
 
+
 pre {
   white-space: pre-line;
 }
@@ -55,10 +57,17 @@ pre {
   list-style: none;
   padding: 0px;
   margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .about {
   display: inline;
+}
+.h {
+  float: right;
 }
 
 h1 {
@@ -75,6 +84,7 @@ h1 {
 .title {
   border: 1px solid gray;
   border-radius: 10px 10px 3px 3px;
+  width: 250px;
 }
 
 p {
@@ -116,6 +126,7 @@ export default {
       errorMessage: "",
       error: false,
       isLoaded: false,
+      date: "",
     };
   },
 
@@ -123,12 +134,14 @@ export default {
     async getData() {
       try {
         let response = await fetch(
-          `${import.meta.env.VITE_API_URL}/broadcasts`
+          `${import.meta.env.VITE_API_URL}/dinnerData`
         );
         let broadcasts = await response.json();
-        broadcasts = broadcasts.reverse();
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+      
         this.broadcasts = broadcasts.filter(function (e) {
-          return e != null;
+          return e != null && (parseInt(dd) <= parseInt(e.date.split(".")[0]));
         });
       } catch (error) {
         console.log(error);
@@ -139,10 +152,25 @@ export default {
       }
       this.isLoaded = true;
     },
+    async loadDate() {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yy = today.getFullYear().toString().substring(2);
+      this.month == mm;
+
+      this.date = dd + '.' + mm + '.' + yy;
+    },
+    isGood(x) {
+      var y = x.toLowerCase();
+      if (y.includes("pierogi") || y.includes("naleśniki") || y.includes("rosół")) return true;
+      return false;
+    }
   },
 
   created() {
     this.getData();
+    this.loadDate();
   },
 };
 </script>

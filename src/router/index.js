@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import AuditionView from "../views/AuditionView.vue";
+import DinnerView from "../views/DinnerView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
 import LoginView from "../views/LoginView.vue";
 import AdminDashboardView from "../views/admin/AdminDashboardView.vue";
@@ -50,6 +51,11 @@ const router = createRouter({
       path: "/audition",
       name: "audition",
       component: AuditionView,
+    },
+    {
+      name: "dinner",
+      path: "/dinner",
+      component: DinnerView,
     },
     {
       name: "login",
