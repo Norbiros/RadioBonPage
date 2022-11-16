@@ -37,6 +37,14 @@
 .title {
   margin: 20px 0px;
 }
+.ul {
+  grid-template-columns: repeat( 1, 1fr );
+  margin-left: 25%;
+  list-style: none;
+  padding: 0px;
+  display: grid;
+  gap: 10px;
+}
 
 @media (min-width: 1024px) {
   .about {
@@ -46,21 +54,16 @@
   .title {
     margin: 30px 20px;
   }
+  
+  .ul {
+    margin: 30px;
+    grid-template-columns: repeat( 5, 1fr );
+  }
 }
 
 
 pre {
   white-space: pre-line;
-}
-
-.ul {
-  list-style: none;
-  padding: 0px;
-  margin: 30px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
 }
 
 .about {
