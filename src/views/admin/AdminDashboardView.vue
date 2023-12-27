@@ -3,24 +3,24 @@
     <h1 style="margin-bottom: 15px">Panel Administratora</h1>
 
     <AdminLink
-      to="/admin/postAudition"
-      color="#00ffe3"
-      title="Dodaj nową audycję"
-      description="Kliknij, aby dodać nową audycję z opisem i tytułem!"
+        color="#00ffe3"
+        description="Kliknij, aby dodać nową audycję z opisem i tytułem!"
+        title="Dodaj nową audycję"
+        to="/admin/postAudition"
     ></AdminLink>
     <AdminLink
-      v-if="isRoot"
-      to="/admin/addUser"
-      color="orange"
-      title="Dodaj użytkownika (ROOT ONLY)"
-      description="Kliknij, aby nowego użytkownika!"
+        v-if="isRoot"
+        color="orange"
+        description="Kliknij, aby nowego użytkownika!"
+        title="Dodaj użytkownika (ROOT ONLY)"
+        to="/admin/addUser"
     ></AdminLink>
     <AdminLink
-      to=""
-      color="lightgray"
-      title="Wygeneruj audycję (WIP)"
-      description="Wygeneruj scenariusz składający się z informacji jak: nietypowe święta lub ogłoszenia z librusa."
-      class="disabled"
+        class="disabled"
+        color="lightgray"
+        description="Wygeneruj scenariusz składający się z informacji jak: nietypowe święta lub ogłoszenia z librusa."
+        title="Wygeneruj audycję (WIP)"
+        to=""
     ></AdminLink>
   </div>
 </template>
@@ -35,11 +35,6 @@ label {
   flex: 0 0 50%;
   max-width: 60%;
   margin-left: 20%;
-}
-
-.admin-button-link {
-  color: var(--color-text);
-  text-decoration: none;
 }
 
 .admin-button-link div {
@@ -64,26 +59,18 @@ label {
 .disabled {
   pointer-events: none;
 }
+
 .admin-button-link div:hover {
   transform: translate3d(15px, 0px, 0px);
-}
-
-.color {
-  height: 100%;
-  width: 10px;
-  display: inline-block;
-  margin-left: -12px;
-  border-radius: 8px 0px 0px 8px;
-  position: absolute;
-  margin-top: -12px;
 }
 </style>
 
 <script>
 import AdminLink from "../../components/AdminLink.vue";
 import axios from "axios";
+
 export default {
-  components: { AdminLink },
+  components: {AdminLink},
   data() {
     return {
       isRoot: null,

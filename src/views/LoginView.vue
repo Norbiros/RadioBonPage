@@ -4,31 +4,31 @@
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="username">Nazwa użytkownika</label>
-        <input type="text" name="username" class="form-control" />
+        <input class="form-control" name="username" type="text"/>
         <div
-          class="invalid-feedback"
-          style="display: none"
-          :class="{ 'is-invalid': submitted && !username }"
+            :class="{ 'is-invalid': submitted && !username }"
+            class="invalid-feedback"
+            style="display: none"
         >
           Imie jest wymagane
         </div>
       </div>
       <div class="form-group">
         <label htmlfor="password">Hasło</label>
-        <input type="password" name="password" class="form-control" />
+        <input class="form-control" name="password" type="password"/>
         <div
-          class="invalid-feedback"
-          style="display: none"
-          :class="{ 'is-invalid': submitted && !password }"
+            :class="{ 'is-invalid': submitted && !password }"
+            class="invalid-feedback"
+            style="display: none"
         >
           Hasło jest wymagane
         </div>
       </div>
       <div class="form-group" style="text-align: center">
         <div
-          class="invalid-feedback"
-          style="display: none"
-          :class="{ show: error != null, 'is-valid': !error }"
+            :class="{ show: error != null, 'is-valid': !error }"
+            class="invalid-feedback"
+            style="display: none"
         >
           {{ errorMessage }}
         </div>
@@ -93,19 +93,19 @@ export default {
       let comp = this;
       if (!!this.username && !!this.password) {
         axios
-          .post(`${import.meta.env.VITE_API_URL}/auth/login`, {
-            username: this.username,
-            password: this.password,
-          })
-          .then(function (el) {
-            comp.errorMessage = el.data;
-            comp.error = false;
-            window.location.href = "/admin";
-          })
-          .catch(function (error) {
-            comp.errorMessage = error.response.data;
-            comp.error = true;
-          });
+            .post(`${import.meta.env.VITE_API_URL}/auth/login`, {
+              username: this.username,
+              password: this.password,
+            })
+            .then(function (el) {
+              comp.errorMessage = el.data;
+              comp.error = false;
+              window.location.href = "/admin";
+            })
+            .catch(function (error) {
+              comp.errorMessage = error.response.data;
+              comp.error = true;
+            });
       }
     },
   },

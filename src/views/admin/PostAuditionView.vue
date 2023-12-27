@@ -4,22 +4,22 @@
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="username">Tytuł</label>
-        <input type="text" name="username" class="form-control" />
+        <input class="form-control" name="username" type="text"/>
       </div>
       <div class="form-group">
         <label htmlfor="email">Opis</label>
         <textarea
-          style="height: 250px; resize: none"
-          type="text"
-          name="email"
-          class="form-control"
+            class="form-control"
+            name="email"
+            style="height: 250px; resize: none"
+            type="text"
         />
       </div>
       <div class="form-group" style="text-align: center">
         <div
-          class="invalid-feedback"
-          style="display: none"
-          :class="{ show: error != null, 'is-valid': !error }"
+            :class="{ show: error != null, 'is-valid': !error }"
+            class="invalid-feedback"
+            style="display: none"
         >
           {{ errorMessage }}
         </div>

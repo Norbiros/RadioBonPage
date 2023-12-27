@@ -4,15 +4,15 @@
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="username">Nazwa użytkownika</label>
-        <input type="text" name="username" class="form-control" />
+        <input class="form-control" name="username" type="text"/>
       </div>
       <div class="form-group">
         <label for="password">Hasło</label>
-        <input type="password" name="password" class="form-control" />
+        <input class="form-control" name="password" type="password"/>
       </div>
       <div class="form-group">
         <label for="username">Uprawnienia</label>
-        <select name="permissions" class="form-control">
+        <select class="form-control" name="permissions">
           <option value="user">Użytkownik</option>
           <option value="admin">Administrator</option>
           <option value="root">Root</option>
@@ -21,9 +21,9 @@
 
       <div class="form-group" style="text-align: center">
         <div
-          class="invalid-feedback"
-          style="display: none"
-          :class="{ show: error != null, 'is-valid': !error }"
+            :class="{ show: error != null, 'is-valid': !error }"
+            class="invalid-feedback"
+            style="display: none"
         >
           {{ errorMessage }}
         </div>
@@ -93,19 +93,19 @@ export default {
       }
 
       axios
-        .post(`${import.meta.env.VITE_API_URL}/register`, {
-          username: username,
-          password: password,
-          permission: permission
-        })
-        .then(function (el) {
-          comp.errorMessage = el.data;
-          comp.error = false;
-        })
-        .catch(function (error) {
-          comp.errorMessage = error.response.data;
-          comp.error = true;
-        });
+          .post(`${import.meta.env.VITE_API_URL}/register`, {
+            username: username,
+            password: password,
+            permission: permission
+          })
+          .then(function (el) {
+            comp.errorMessage = el.data;
+            comp.error = false;
+          })
+          .catch(function (error) {
+            comp.errorMessage = error.response.data;
+            comp.error = true;
+          });
     },
   },
 };

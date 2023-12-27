@@ -1,11 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import {RouterLink, RouterView} from "vue-router";
 </script>
 
 <template>
   <div class="navbar">
     <RouterLink to="/"
-      ><img alt="Logo" class="logo" src="@/assets/logo.png"
+    ><img alt="Logo" class="logo" src="@/assets/logo.png"
     /></RouterLink>
 
     <div class="links">
@@ -14,13 +14,13 @@ import { RouterLink, RouterView } from "vue-router";
       <RouterLink to="/dinner">Stołówka</RouterLink>
       <RouterLink to="/about">Informacje</RouterLink>
       <RouterLink :to="adminPanelLink"
-        ><img alt="Login" class="logo" src="@/assets/login.png"
+      ><img alt="Login" class="logo" src="@/assets/login.png"
       /></RouterLink>
     </div>
   </div>
 
   <div class="body">
-    <RouterView />
+    <RouterView/>
   </div>
 </template>
 
@@ -40,7 +40,7 @@ import { RouterLink, RouterView } from "vue-router";
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 100;
-  top: 0px;
+  top: 0;
 }
 
 .links img {
@@ -84,7 +84,7 @@ import { RouterLink, RouterView } from "vue-router";
   border-left: 1px solid var(--color-border);
 }
 
-.navbar a.router-link-exact-active {
+.navbar a {
   font-weight: bold;
 }
 
@@ -92,9 +92,9 @@ a.router-link-exact-active > img {
   filter: drop-shadow(0 0 0.2px black);
 }
 
-.navbar a:hover:not(.router-link-exact-active) {
+.navbar a:hover {
   text-shadow: -0.2px -0.2px 0 var(--color-text),
-    0.2px -0.2px 0 var(--color-text);
+  0.2px -0.2px 0 var(--color-text);
 }
 
 .navbar a:first-of-type {
@@ -114,12 +114,12 @@ export default {
   beforeMount() {
     let that = this;
     axios
-      .get(`${import.meta.env.VITE_API_URL}/isLoggedIn`, {
-        withCredentials: true,
-      })
-      .then(function (res) {
-        that.adminPanelLink = res.data == true ? "/admin" : "/login";
-      });
+        .get(`${import.meta.env.VITE_API_URL}/isLoggedIn`, {
+          withCredentials: true,
+        })
+        .then(function (res) {
+          that.adminPanelLink = res.data === true ? "/admin" : "/login";
+        });
   },
 };
 </script>

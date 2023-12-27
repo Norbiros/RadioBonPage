@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="to" class="admin-button-link">
     <div>
-      <span class="color" :style="{ background: backgroundColor() }"></span>
+      <span :style="{ background: backgroundColor() }" class="color"></span>
       <h2 style="margin-left: 10px">{{ title }}</h2>
       <span style="margin-left: 10px">{{ description }}</span>
     </div>

@@ -1,8 +1,8 @@
 <template>
-  <div class="about" id="notfound-outer">
+  <div id="notfound-outer" class="about">
     <h1>404</h1>
     <div style="text-align: center">
-      Nie znaleziono podanej strony!<br />
+      Nie znaleziono podanej strony!<br/>
       Przejdź na <a href="/">Stronę Główną</a>, aby zobaczyć inne strony!
     </div>
   </div>

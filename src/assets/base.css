@@ -1,80 +1,80 @@
 /* Color palette from <https://github.com/vuejs/theme> */
 
 :root {
-  --vt-c-white: #fcfcfc;
+    --vt-c-white: #fcfcfc;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+    --vt-c-black: #181818;
+    --vt-c-black-soft: #222222;
+    --vt-c-black-mute: #282828;
 
-  --vt-c-indigo: #2c3e50;
+    --vt-c-indigo: #2c3e50;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-  --vt-c-nav-background-dark: #303030;
-  --vt-c-text-background-dark: #050505;
-  --vt-c-nav-dark: #4b4a4a;
+    --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+    --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+    --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+    --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+    --vt-c-nav-background-dark: #303030;
+    --vt-c-text-background-dark: #050505;
+    --vt-c-nav-dark: #4b4a4a;
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-  --vt-c-nav-background-light: gainsboro;
-  --vt-c-text-background-light: none;
-  --vt-c-nav-light: white;
+    --vt-c-text-light-1: var(--vt-c-indigo);
+    --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+    --vt-c-text-dark-1: var(--vt-c-white);
+    --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+    --vt-c-nav-background-light: gainsboro;
+    --vt-c-text-background-light: none;
+    --vt-c-nav-light: white;
 }
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
-  --text-nav-background: var(--vt-c-nav-background-light);
-  --text-background: var(--vt-c-text-background-light);
+    --color-background: var(--vt-c-white);
+    --text-nav-background: var(--vt-c-nav-background-light);
+    --text-background: var(--vt-c-text-background-light);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+    --color-border: var(--vt-c-divider-light-2);
+    --color-border-hover: var(--vt-c-divider-light-1);
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-  --nav-background: var(--vt-c-nav-light);
-  --section-gap: 160px;
+    --color-heading: var(--vt-c-text-light-1);
+    --color-text: var(--vt-c-text-light-1);
+    --nav-background: var(--vt-c-nav-light);
+    --section-gap: 160px;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
+    :root {
+        --color-background: var(--vt-c-black);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+        --color-border: var(--vt-c-divider-dark-2);
+        --color-border-hover: var(--vt-c-divider-dark-1);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-    --text-nav-background: var(--vt-c-nav-background-dark);
-    --text-background: var(--vt-c-text-background-dark);
-    --nav-background: var(--vt-c-nav-dark);
-  }
+        --color-heading: var(--vt-c-text-dark-1);
+        --color-text: var(--vt-c-text-dark-2);
+        --text-nav-background: var(--vt-c-nav-background-dark);
+        --text-background: var(--vt-c-text-background-dark);
+        --nav-background: var(--vt-c-nav-dark);
+    }
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
 }
 
 body {
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 1.6;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

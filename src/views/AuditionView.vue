@@ -4,18 +4,18 @@
     <div class="broadcast-page-desc">
       Tutaj przeczytasz wszystkie nasze audycje!
     </div>
-    <div id="loading" v-if="!isLoaded">
+    <div v-if="!isLoaded" id="loading">
       <img
-        class="img"
-        src="@/assets/loading.svg"
-        alt="Loading..."
-        width="200"
+          alt="Loading..."
+          class="img"
+          src="@/assets/loading.svg"
+          width="200"
       />
     </div>
     <div v-if="error">
       <div id="errors">
         <h1>Podczas ładowania wystąpił błąd!</h1>
-        <span> {{ errorName }}: {{ errorMessage }} </span> <br />
+        <span> {{ errorName }}: {{ errorMessage }} </span> <br/>
         <span style="font-weight: bold">
           Skontaktuj się z
           <a href="mailto:norbiros@protonmail.com">Developerem</a> aby zgłosić
@@ -24,7 +24,7 @@
       </div>
     </div>
     <ul class="ul">
-      <li class="title" v-for="broadcast in broadcasts">
+      <li v-for="broadcast in broadcasts" class="title">
         <p>{{ broadcast.title }}</p>
         <pre class="broadcasts-desc">{{ broadcast.description }}</pre>
       </li>
@@ -34,7 +34,7 @@
 
 <style scoped>
 .title {
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 
 @media (min-width: 1024px) {
@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
   }
+
   .title {
     margin: 30px 20px;
   }
@@ -53,7 +54,7 @@ pre {
 
 .ul {
   list-style: none;
-  padding: 0px;
+  padding: 0;
   margin: 30px;
 }
 
@@ -64,7 +65,7 @@ pre {
 h1 {
   text-align: center;
   font-weight: bold;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .broadcast-page-desc {
@@ -81,7 +82,7 @@ p {
   background: var(--text-nav-background);
   padding: 8px 12px;
   font-weight: bold;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px 10px 0 0;
 }
 
 .broadcasts-desc {
@@ -123,7 +124,7 @@ export default {
     async getData() {
       try {
         let response = await fetch(
-          `${import.meta.env.VITE_API_URL}/broadcasts`
+            `${import.meta.env.VITE_API_URL}/broadcasts`
         );
         let broadcasts = await response.json();
         broadcasts = broadcasts.reverse();
